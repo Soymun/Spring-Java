@@ -1,6 +1,22 @@
 swagger-api:
   version: "1.0"
 
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: qwerty
+  jpa:
+    properties:
+      hibernate:
+        format_sql: true
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  sql:
+    init:
+      mode: always
+
 server:
   port: 8091
   servlet:
