@@ -36,7 +36,7 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public UserDto updateUser(UserDto userDto) {
-        userRepository.findByIdForUpdate(userDto.getId()).orElseThrow(()->new NotFoundException(String.format("User with id: %d not found", userDto.getId())));
+        userRepository.findById(userDto.getId()).orElseThrow(()->new NotFoundException(String.format("User with id: %d not found", userDto.getId())));
         Person user = userMapper.userDtoToPerson(userDto);
         log.info("Mapped user: {}", user);
         Person updatePerson = userRepository.save(user);

@@ -59,7 +59,7 @@ public class BookServiceImpl implements BookService {
     @Transactional
     public List<BookDto> getBookByUserId(Long id) {
         log.info("Get books by user id: {}", id);
-        return bookRepository.findAllByUserId(id).stream().map(bookMapper::bookToBookDto).toList();
+        return bookRepository.findAllByPersonId(id).stream().map(bookMapper::bookToBookDto).toList();
     }
 
     @Override
